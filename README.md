@@ -2,11 +2,13 @@
 
 A modern, playable rebuild inspired by [cjauvin/gamebook.js](https://github.com/cjauvin/gamebook.js).
 
-The 2013 project was an IF-style engine on top of *Fire on the Water* (Lone Wolf / Project Aon). That book text is copyrighted and cannot live in this repo. This project keeps the *idea* — type a command, the engine matches it to a hidden choice — and turns it into a self-contained game you can finish.
-
 ## Play
 
-Open `index.html` in a browser, or enable GitHub Pages on this repository (Settings → Pages → Deploy from `main` → `/`).
+**Live:** [https://johnconstant99-dev.github.io/gamebook-play/](https://johnconstant99-dev.github.io/gamebook-play/)
+
+GitHub Pages is deployed from `main` by `.github/workflows/pages.yml`. First publish can take a minute or two.
+
+You can also open `index.html` locally.
 
 You can:
 

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Emberwake — a playable gamebook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          gamebook.play
+          <strong>Emberwake</strong>
+        </div>
+        <div class="actions">
+          <button class="ghost" id="btn-new">New game</button>
+          <button class="ghost" id="btn-save">Save</button>
+          <button class="ghost" id="btn-load">Load</button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <main class="panel story">
+          <div class="section-meta">
+            <span id="section-title">Vellhaven Docks</span>
+            <span id="section-id">Section · harbor</span>
+          </div>
+          <div class="story-text" id="story-text">
+            <p>Rain on black water. The last ferry waits.</p>
+          </div>
+          <div class="log" id="log"></div>
+          <div class="choices" id="choices"></div>
+          <form class="command-row" id="cmd-form">
+            <input id="command" autocomplete="off" placeholder="Type a command — board ferry, sneak, attack…" />
+            <button class="cmd-send" type="submit">Go</button>
+          </form>
+          <p class="hint">Type free commands the way the original gamebook.js did, or click a choice. Inventory items that heal can be clicked.</p>
+        </main>
+
+        <aside class="panel chart">
+          <h2>Action Chart</h2>
+          <div class="stat-grid">
+            <div class="stat">
+              <label>Combat skill</label>
+              <b id="stat-skill">10</b>
+            </div>
+            <div class="stat">
+              <label>Gold</label>
+              <b id="stat-gold">8</b>
+            </div>
+            <div class="stat" style="grid-column: 1 / -1">
+              <label>Endurance</label>
+              <b id="stat-endurance">20 / 20</b>
+              <div class="bar"><span id="hp-bar"></span></div>
+            </div>
+          </div>
+          <div class="list">
+            <h3>Backpack</h3>
+            <div class="chips" id="inventory"></div>
+          </div>
+          <div class="list">
+            <h3>Marks</h3>
+            <div class="chips" id="flags"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <div class="screen open" id="title-screen">
+      <div class="card">
+        <h1>Emberwake</h1>
+        <p>
+          A playable IF-style gamebook. Type what you want to do, or pick a choice.
+          Fight on the deck, steal a key, light a dead beacon — or leave the town to the marsh.
+        </p>
+        <p>
+          Inspired by <a href="https://github.com/cjauvin/gamebook.js" style="color:#d4af37">cjauvin/gamebook.js</a>,
+          rebuilt as a game you can finish in one sitting. Original story — no copyrighted Lone Wolf text.
+        </p>
+        <button class="primary" id="start-game">Stand on the dock</button>
+        <button class="ghost" id="continue-game" style="width:100%;margin-top:8px;display:none">Continue saved game</button>
+      </div>
+    </div>
+
+    <div class="screen" id="combat-screen">
+      <div class="card">
+        <h2 id="combat-title">Combat</h2>
+        <p>You <b id="combat-you">20</b> · Enemy <b id="combat-them">10</b></p>
+        <div class="combat-log" id="combat-log"></div>
+        <button class="primary" id="combat-strike">Strike</button>
+        <button class="ghost" id="combat-flee" style="width:100%;margin-top:8px">Try to flee</button>
+      </div>
+    </div>
+
+    <script src="story.js"></script>
+    <script src="engine.js"></script>
+  </body>
+</html>
